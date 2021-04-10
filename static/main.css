@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+body{
+    background: #ecf0f1;
+}
+
+.row{
+    margin-top: auto;
+    margin: 100px;
+    padding: 10px;
+    align-content: center;
+}
