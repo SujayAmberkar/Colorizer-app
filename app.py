@@ -2,7 +2,6 @@ from flask import Flask, render_template,request,redirect
 import requests
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import Algorithmia
 import asyncio
 from im import img
 
