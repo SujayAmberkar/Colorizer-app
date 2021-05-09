@@ -12,6 +12,7 @@ db = SQLAlchemy(app)
 
 
 class Painter(db.Model):
+    db.create_all ()
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200),nullable=False)
     completed = db.Column(db.Integer,default=0)
@@ -24,7 +25,7 @@ class Painter(db.Model):
 
 @app.route('/home', methods=['POST', 'GET'])
 def index():
-    db.create_all ()
+    
     if request.method == 'POST':
         task_content = request.form['content']
         new_task = Painter(content=task_content)
