@@ -7,7 +7,7 @@ from im import img
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='DATABASE_URL'
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://kwssykuhixsvbw:033b3a1ce45215ffb610033d3cbfa58a08b32e7a673c73821a5080c56bae0cc0@ec2-54-164-22-242.compute-1.amazonaws.com:5432/dqkleovt9di82'
 db = SQLAlchemy(app)
 
 class Painter(db.Model):
