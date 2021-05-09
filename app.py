@@ -17,7 +17,7 @@ class Painter(db.Model):
     content = db.Column(db.String(200),nullable=False)
     completed = db.Column(db.Integer,default=0)
     date_created = db.Column(db.DateTime,default=datetime.utcnow)
-    db.create_all ()
+    
     def __repr__(self):
         return '<Task %r>' % self.id
 
@@ -25,7 +25,7 @@ class Painter(db.Model):
 
 @app.route('/home', methods=['POST', 'GET'])
 def index():
-    
+    db.create_all ()
     if request.method == 'POST':
         task_content = request.form['content']
         new_task = Painter(content=task_content)
