@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://kwssykuhixsvbw:033b3a1ce45215ffb610033d3cbfa58a08b32e7a673c73821a5080c56bae0cc0@ec2-54-164-22-242.compute-1.amazonaws.com:5432/dqkleovt9di82'
 db = SQLAlchemy(app)
 
+
 class Painter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200),nullable=False)
@@ -20,8 +21,10 @@ class Painter(db.Model):
         return '<Task %r>' % self.id
 
 
+
 @app.route('/home', methods=['POST', 'GET'])
 def index():
+    db.create_all ()
     if request.method == 'POST':
         task_content = request.form['content']
         new_task = Painter(content=task_content)
@@ -66,6 +69,8 @@ def signin():
         return redirect('/home')
         
     return render_template('signin.html')
+
+
 
 if __name__ =="__main__":
     app.run(debug=True)
